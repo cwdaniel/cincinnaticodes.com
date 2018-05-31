@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import "./button.css";
-
+import "./index.css";
 class Well extends React.Component {
   render() {
     let content = this.props.children;
@@ -36,7 +36,11 @@ class Button extends React.Component {
 }
 class Header extends React.Component {
   render() {
-    return <header />;
+    return (
+      <header className="header">
+        <div>Cincinnati Codes</div> <div>Home</div>
+      </header>
+    );
   }
 }
 
@@ -44,10 +48,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Well>
-          <p>Welcome</p>
-        </Well>
-        <Button buttonTile="Click Me" click={() => alert("test")} />
+        <Header />
+        <div className="content">
+          <Well>
+            <p>Welcome</p>
+          </Well>
+          <Button buttonTile="Click Me" click={() => alert("test")} />
+        </div>
       </div>
     );
   }
