@@ -38,8 +38,20 @@ class Header extends React.Component {
   render() {
     return (
       <header className="header">
-        <div>Cincinnati Codes</div> <div>Home</div>
+        <div>
+          <h2>Cincinnati Codes</h2>
+        </div>{" "}
+        <div>Home</div>
       </header>
+    );
+  }
+}
+class Footer extends React.Component {
+  render() {
+    return (
+      <footer className="footer">
+        <div>© 2018 Cincinnati Codes</div>
+      </footer>
     );
   }
 }
@@ -51,10 +63,10 @@ class App extends React.Component {
         <Header />
         <div className="content">
           <Well>
-            <p>Welcome</p>
+            <p>Welcome to Cincinnati Codes, we are glad you've stopped by.</p>
           </Well>
-          <Button buttonTile="Click Me" click={() => alert("test")} />
         </div>
+        <Footer />
       </div>
     );
   }
