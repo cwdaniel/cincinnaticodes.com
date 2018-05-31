@@ -1,0 +1,12 @@
+.header {
+  background: white;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
+}
+.content {
+  padding-top: 60px;
+}
