@@ -45,7 +45,7 @@ class App extends React.Component {
     return (
       <div>
         <Well>
-          <p />
+          <p>Welcome</p>
         </Well>
         <Button buttonTile="Click Me" click={() => alert("test")} />
       </div>
