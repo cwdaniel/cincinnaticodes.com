@@ -1,73 +1,33 @@
 import React from "react";
 import { render } from "react-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HomeComponent } from "./components/pages/Home";
+import { AboutComponent } from "./components/pages/About";
+import { CalendarComponent } from "./components/pages/Calendar";
+import { ContactComponent } from "./components/pages/Contact";
+import { ComingSoon } from "./components/pages/ComingSoon";
+import { Header, Content, Footer } from "./components/layout";
 import "./button.css";
 import "./index.css";
-class Well extends React.Component {
-  render() {
-    let content = this.props.children;
-    let wellType = this.props.wellType ? this.props.wellType : "well";
-    return (
-      <div
-        style={{
-          background: "#eee",
-          padding: 20 + "px",
-          border: "1px #eee solid",
-          borderRadius: 10 + "px"
-        }}
-        className={wellType}
-      >
-        {this.props.children}
-      </div>
-    );
-  }
-}
-
-class Button extends React.Component {
-  render() {
-    let buttonTile = this.props.buttonTile;
-    let buttonColor = this.props.buttonColor;
-    let onClick = this.props.click;
-    return (
-      <button className={`button `} onClick={() => onClick()}>
-        {buttonTile}
-      </button>
-    );
-  }
-}
-class Header extends React.Component {
-  render() {
-    return (
-      <header className="header">
-        <div>
-          <h2>Cincinnati Codes</h2>
-        </div>{" "}
-        <div>Home</div>
-      </header>
-    );
-  }
-}
-class Footer extends React.Component {
-  render() {
-    return (
-      <footer className="footer">
-        <div>© 2018 Cincinnati Codes</div>
-      </footer>
-    );
-  }
-}
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Header />
-        <div className="content">
-          <Well>
-            <p>Welcome to Cincinnati Codes, we are glad you've stopped by.</p>
-          </Well>
+      <Router>
+        <div>
+          <Header />
+          <Content>
+            <Switch>
+              <Route path="/" exact={true} component={ComingSoon} />
+              <Route path="/home" exact={true} component={HomeComponent} />
+              <Route path="/about" exact={true} component={AboutComponent} />
+              <Route path="/calendar" component={CalendarComponent} />
+              <Route path="/contact" component={ContactComponent} />
+            </Switch>
+          </Content>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </Router>
     );
   }
 }
